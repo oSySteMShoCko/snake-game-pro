@@ -10,15 +10,15 @@ const INITIAL_DIRECTION: Direction = 'UP';
 const BASE_SPEED = 150;
 
 const App: React.FC = () => {
-  const [snake, setSnake] = useState<Point[]>(INITIAL_SNAKE);
-  const [food, setFood] = useState<Point>({ x: 5, y: 5 });
-  const [direction, setDirection] = useState<Direction>(INITIAL_DIRECTION);
+  const [snake, setSnake] = useState < Point[] > (INITIAL_SNAKE);
+  const [food, setFood] = useState < Point > ({ x: 5, y: 5 });
+  const [direction, setDirection] = useState < Direction > (INITIAL_DIRECTION);
   const [isGameOver, setIsGameOver] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(Number(localStorage.getItem('snake-highscore')) || 0);
-  
-  const gameLoopRef = useRef<NodeJS.Timeout | null>(null);
+
+  const gameLoopRef = useRef < NodeJS.Timeout | null > (null);
 
   const generateFood = useCallback((): Point => {
     let newFood;
@@ -121,7 +121,7 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      <div 
+      <div
         className="relative bg-slate-800 border-8 border-slate-700 rounded-xl shadow-2xl overflow-hidden cursor-none"
         style={{ width: GRID_SIZE * 20, height: GRID_SIZE * 20 }}
       >
@@ -155,7 +155,7 @@ const App: React.FC = () => {
               <>
                 <h2 className="text-4xl font-black text-rose-500 mb-2">CRASHED!</h2>
                 <p className="text-slate-300 mb-6">Final Score: {score}</p>
-                <button 
+                <button
                   onClick={resetGame}
                   className="flex items-center gap-2 px-8 py-3 bg-emerald-500 hover:bg-emerald-600 rounded-full font-bold transition-all transform hover:scale-105 active:scale-95"
                 >
@@ -168,7 +168,7 @@ const App: React.FC = () => {
                 <h2 className="text-4xl font-black text-amber-400 mb-6 flex items-center gap-3 uppercase">
                   PAUSED
                 </h2>
-                <button 
+                <button
                   onClick={() => setIsPaused(false)}
                   className="flex items-center gap-2 px-8 py-3 bg-emerald-500 hover:bg-emerald-600 rounded-full font-bold transition-all"
                 >
@@ -176,11 +176,11 @@ const App: React.FC = () => {
                   RESUME
                 </button>
               </>
-            ) }
+            )}
           </div>
         )}
       </div>
-      
+
       <div className="mt-8 grid grid-cols-2 gap-8 text-slate-500 text-xs uppercase font-semibold tracking-widest">
         <div className="flex flex-col items-center gap-2">
           <div className="flex gap-1">
